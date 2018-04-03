@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<settings>
+		<setting name="cacheEnabled" value="false" />
+		<setting name="localCacheScope" value="STATEMENT" />
+	</settings>
+
+	<typeAliases>
+		<typeAlias type="com.xiaoyu.lingdian.entity.WxPayRequest" alias="WxPayRequest" />
+		<typeAlias type="com.xiaoyu.lingdian.entity.WxPayResponse" alias="WxPayResponse" />
+		<typeAlias type="com.xiaoyu.lingdian.entity.AliPayRequest" alias="AliPayRequest" />
+		<typeAlias type="com.xiaoyu.lingdian.entity.AliPayResponse" alias="AliPayResponse" />
+		<typeAlias type="com.xiaoyu.lingdian.entity.NotifyLog" alias="NotifyLog" />
+		<typeAlias type="com.xiaoyu.lingdian.entity.RefundLog" alias="RefundLog" />
+		<typeAlias type="com.xiaoyu.lingdian.entity.WxRefundRequest" alias="WxRefundRequest" />
+		<typeAlias type="com.xiaoyu.lingdian.entity.WxRefundResponse" alias="WxRefundResponse" />
+		<typeAlias type="com.xiaoyu.lingdian.entity.AliRefundRequest" alias="AliRefundRequest" />
+		<typeAlias type="com.xiaoyu.lingdian.entity.AliRefundResponse" alias="AliRefundResponse" />		
+		<typeAlias type="com.xiaoyu.lingdian.entity.WxCloseorder" alias="WxCloseorder"/>
+		<typeAlias type="com.xiaoyu.lingdian.entity.WxRefundQuery" alias="WxRefundQuery"/>
+		<typeAlias type="com.xiaoyu.lingdian.entity.PayRecord" alias="PayRecord"/>
+		<typeAlias type="com.xiaoyu.lingdian.entity.PayRequest" alias="PayRequest"/>
+		<typeAlias type="com.xiaoyu.lingdian.entity.PayErrorLog" alias="PayErrorLog"/>	
+	</typeAliases>
+
+	<plugins>
+		<plugin interceptor="com.xiaoyu.lingdian.core.mybatis.plugin.SelectCountSqlInterceptor" />
+		<plugin interceptor="com.xiaoyu.lingdian.core.mybatis.plugin.OffsetLimitInterceptor">
+			<property name="dialectClass" value="com.xiaoyu.lingdian.core.mybatis.dialect.MySQLDialect" />
+		</plugin>
+	</plugins>
+
+	<mappers>
+		<mapper resource="com/xiaoyu/lingdian/mapper/wx_pay_request_mapper.xml" />
+		<mapper resource="com/xiaoyu/lingdian/mapper/wx_pay_response_mapper.xml" />
+		<mapper resource="com/xiaoyu/lingdian/mapper/ali_pay_request_mapper.xml" />
+		<mapper resource="com/xiaoyu/lingdian/mapper/ali_pay_response_mapper.xml" />
+		<mapper resource="com/xiaoyu/lingdian/mapper/notify_log_mapper.xml" />
+		<mapper resource="com/xiaoyu/lingdian/mapper/refund_log_mapper.xml" />
+		<mapper resource="com/xiaoyu/lingdian/mapper/wx_refund_request_mapper.xml" />
+		<mapper resource="com/xiaoyu/lingdian/mapper/wx_refund_response_mapper.xml" />
+		<mapper resource="com/xiaoyu/lingdian/mapper/ali_refund_request_mapper.xml" />
+		<mapper resource="com/xiaoyu/lingdian/mapper/ali_refund_response_mapper.xml" />
+		<mapper resource="com/xiaoyu/lingdian/mapper/wx_closeorder_mapper.xml" />
+		<mapper resource="com/xiaoyu/lingdian/mapper/wx_refund_query_mapper.xml" />
+		<mapper resource="com/xiaoyu/lingdian/mapper/pay_record_mapper.xml" />
+		<mapper resource="com/xiaoyu/lingdian/mapper/pay_request_mapper.xml" />
+		<mapper resource="com/xiaoyu/lingdian/mapper/pay_error_log_mapper.xml" />
+	</mappers>
+</configuration>
